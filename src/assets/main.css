@@ -1,0 +1,17 @@
+:root {
+  --col-max-day: #4abc65;
+  --col-min-day: #3a4242;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color-scheme: dark;
+  color: #fffce1;
+  font-family: "JetBrains Mono", monospace;
+  background: #162425;
+
+  margin: 0;
+}
