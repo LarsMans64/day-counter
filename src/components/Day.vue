@@ -12,7 +12,7 @@ const format: Intl.DateTimeFormatOptions = {
   month: "short"
 }
 
-const frac = computed<string>(() => (props.most == 0 ? 0 : props.day.count / props.most) * 100 + "%");
+const frac = computed<string>(() => Math.max(0, props.most == 0 ? 0 : props.day.count / props.most) * 100 + "%");
 </script>
 
 <template>
@@ -41,7 +41,7 @@ const frac = computed<string>(() => (props.most == 0 ? 0 : props.day.count / pro
   padding: 5px 5px 5px 5px;
   margin-bottom: 10px;
 
-  transition: 100ms ease-out;
+  transition: all 200ms ease-out;
 
   display: flex;
   flex-direction: column;
@@ -53,6 +53,7 @@ const frac = computed<string>(() => (props.most == 0 ? 0 : props.day.count / pro
   border-top: oklch(from var(--col-day) calc(l * .7) c h) solid 4px;
   border-bottom: transparent solid 4px;
   border-radius: 15px;
+  transition: all 200ms ease-out;
 }
 
 .inner {
@@ -74,7 +75,7 @@ const frac = computed<string>(() => (props.most == 0 ? 0 : props.day.count / pro
   grid-template-columns: 1fr 1fr;
   gap: 5px;
 
-  transition: 100ms ease-out;
+  transition: opacity 150ms ease-out;
 }
 
 .day:hover .buttons {
