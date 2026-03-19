@@ -1,6 +1,8 @@
 :root {
   --col-max-day: #4abc65;
   --col-min-day: #3a4242;
+  --col-button: #3c6c87;
+  --col-button-hover: #4d8da1;
 }
 
 * {
