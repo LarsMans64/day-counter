@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useLocalStorage} from "@vueuse/core";
-import {computed} from "vue";
+import {computed, watch} from "vue";
 import {type CounterData} from "@/utils/types.ts"
 import Day from "@/components/Day.vue";
 
@@ -21,9 +21,29 @@ function reload() {
   }
 }
 
+watch(days, () => {
+  const day = days[days.length - 1];
+  const day2 = days[days.length - 2];
+  if (day && day.count != 0) {
+    days.push({
+      date: getYesterday(day.date).valueOf(),
+      count: 0,
+    })
+  }
+  if (day && day2 && day.count == 0 && day2.count == 0) {
+    days.pop()
+  }
+})
+
 function getTomorrow(date: number) {
   const d = new Date(date);
   d.setDate(d.getDate() + 1);
+  return d
+}
+
+function getYesterday(date: number) {
+  const d = new Date(date);
+  d.setDate(d.getDate() - 1);
   return d
 }
 
@@ -75,7 +95,7 @@ main {
     padding: 15px 20px;
     font-size: 1.1rem;
 
-    box-shadow: 0 5px 0 oklch(0 0 0 / 0.3);
+    box-shadow: 0 5px 0 oklch(0 0 0 / 0.2);
 
     transition: all 100ms ease-out;
 
