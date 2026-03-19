@@ -34,6 +34,7 @@ const frac = computed<string>(() => Math.max(0, props.most == 0 ? 0 : props.day.
   /*--col-day: oklch(from var(--col-max-day) l calc(c * v-bind(frac)) h);*/
 
   background: var(--col-day);
+  box-shadow: 0 5px 0 oklch(0 0 0 / 0.3);
   border-radius: 20px;
   overflow: hidden;
   user-select: none;

@@ -17,3 +17,9 @@ body {
 
   margin: 0;
 }
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}

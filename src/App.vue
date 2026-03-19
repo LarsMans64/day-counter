@@ -72,10 +72,10 @@ main {
     background-color: var(--col-button);
     border: 5px solid var(--col-button-hover);
     border-radius: 20px;
-    cursor: pointer;
     padding: 15px 20px;
     font-size: 1.1rem;
-    font-family: inherit;
+
+    box-shadow: 0 5px 0 oklch(0 0 0 / 0.3);
 
     transition: all 100ms ease-out;
 
