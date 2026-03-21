@@ -3,6 +3,7 @@ import {useLocalStorage} from "@vueuse/core";
 import {computed, watch} from "vue";
 import {type CounterData} from "@/utils/types.ts"
 import Day from "@/components/Day.vue";
+import RefreshIcon from "@/components/icons/RefreshIcon.vue";
 
 const data = useLocalStorage<CounterData>("data", { days: [] });
 
@@ -62,6 +63,7 @@ function isToday(date: number) {
     <main>
       <div class="buttons">
         <button @click="reload" class="reload">
+          <RefreshIcon class="icon"/>
           Reload
         </button>
       </div>
@@ -94,15 +96,34 @@ main {
     background-color: var(--col-button);
     border: 5px solid var(--col-button-hover);
     border-radius: 20px;
-    padding: 15px 20px;
+    padding: 12px 15px;
     font-size: 1.1rem;
 
     box-shadow: 0 5px 0 oklch(0 0 0 / 0.2);
 
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
     transition: all 100ms ease-out;
+
+    .icon {
+      font-size: 1.3rem;
+      transition: 300ms ease-out;
+    }
 
     &:hover {
       background-color: var(--col-button-hover);
+
+      .icon {
+        rotate: 359deg;
+        scale: 1.2;
+      }
+    }
+
+    &:active {
+      background-color: var(--col-button);
+      border: 5px solid var(--col-button);
     }
   }
 }
