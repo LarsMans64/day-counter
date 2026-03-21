@@ -21,6 +21,8 @@ function reload() {
   }
 }
 
+setInterval(reload, 1000);
+
 watch(days, () => {
   const day = days[days.length - 1];
   const day2 = days[days.length - 2];
