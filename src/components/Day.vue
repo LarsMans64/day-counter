@@ -12,7 +12,10 @@ const format: Intl.DateTimeFormatOptions = {
   month: "short"
 }
 
-const frac = computed<string>(() => Math.max(0, props.most == 0 ? 0 : props.day.count / props.most) * 100 + "%");
+const frac = computed<number>(() => Math.max(0, props.most == 0 ? 0 : props.day.count / props.most));
+const percent = computed<string>(() => frac.value * 100 + "%");
+
+const count = computed(() => props.day.count);
 </script>
 
 <template>
@@ -30,8 +33,8 @@ const frac = computed<string>(() => Math.max(0, props.most == 0 ? 0 : props.day.
 
 <style scoped>
 .day {
-  --col-day: color-mix(in oklab, var(--col-min-day) calc(100% - v-bind(frac)), var(--col-max-day) v-bind(frac));
-  /*--col-day: oklch(from var(--col-max-day) l calc(c * v-bind(frac)) h);*/
+  --col-day:
+      color-mix(in oklab, var(--col-min-day) calc(100% - v-bind(percent)), oklch(from var(--col-max-day) l c calc(h + 15 * v-bind(count))) calc(v-bind(percent) * 3));
 
   background: var(--col-day);
   box-shadow: 0 5px 0 oklch(0 0 0 / 0.3);
