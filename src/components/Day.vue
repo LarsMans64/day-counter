@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type {Day} from "@/utils/types.ts";
-import {computed} from "vue";
+import {computed, ref} from "vue";
 
 const props = defineProps<{
   day: Day
@@ -16,6 +16,14 @@ const frac = computed<number>(() => Math.max(0, props.most == 0 ? 0 : props.day.
 const percent = computed<string>(() => frac.value * 100 + "%");
 
 const count = computed(() => props.day.count);
+
+const shadowAnim = ref(.5);
+function animate() {
+  shadowAnim.value = Math.random() * .8 + .2;
+
+  setTimeout(animate, Math.random() * 1000 + 500);
+}
+animate();
 </script>
 
 <template>
@@ -37,15 +45,17 @@ const count = computed(() => props.day.count);
       color-mix(in oklab, var(--col-min-day) calc(100% - v-bind(percent)), oklch(from var(--col-max-day) l c calc(h + 15 * v-bind(count))) calc(v-bind(percent) * 3));
 
   background: var(--col-day);
-  box-shadow: 0 5px 0 oklch(0 0 0 / 0.3);
+  box-shadow: 0 5px 0 oklch(0 0 0 / 0.3), 0 0 200px oklch(from var(--col-day) l c h / calc(100% * v-bind(shadowAnim)));
   border-radius: 20px;
   overflow: hidden;
   user-select: none;
 
+  color: oklch(from var(--col-day) 0.95 calc(c - 0.1) h);
+
   padding: 5px 5px 5px 5px;
   margin-bottom: 10px;
 
-  transition: all 200ms ease-out;
+  transition: all 1s ease-in-out, background-color 200ms ease-out;
 
   display: flex;
   flex-direction: column;

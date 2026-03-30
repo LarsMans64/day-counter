@@ -3,6 +3,8 @@
   --col-min-day: #3a4242;
   --col-button: #3c6c87;
   --col-button-hover: #4d8da1;
+  --col-text: #fffce1;
+  --col-bg: #070d13;
 }
 
 * {
@@ -11,9 +13,9 @@
 
 body {
   color-scheme: dark;
-  color: #fffce1;
+  background: var(--col-bg);
+  color: var(--col-text);
   font-family: "JetBrains Mono", monospace;
-  background: #162425;
 
   margin: 0;
 }
