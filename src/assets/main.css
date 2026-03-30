@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 :root {
   --col-max-day: #7fc340;
   --col-min-day: #3a4242;
@@ -24,4 +26,6 @@ button {
   border: none;
   cursor: pointer;
   font-family: inherit;
+  color: inherit;
+  font-size: inherit;
 }

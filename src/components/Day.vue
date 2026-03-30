@@ -33,8 +33,8 @@ animate();
       <div class="date">{{ new Date(day.date).toLocaleDateString(undefined, format) }}</div>
     </div>
     <div class="buttons">
-      <button class="tile" @click="day.count--">-</button>
-      <button class="tile" @click="day.count++">+</button>
+      <button class="tile" @click.prevent="day.count--">-</button>
+      <button class="tile" @click.prevent="day.count++">+</button>
     </div>
   </div>
 </template>
@@ -50,7 +50,7 @@ animate();
   overflow: hidden;
   user-select: none;
 
-  color: oklch(from var(--col-day) 0.95 calc(c - 0.1) h);
+  text-shadow: oklch(from var(--col-day) .9 c h / 30%) 0 0 10px;
 
   padding: 5px 5px 5px 5px;
   margin-bottom: 10px;
