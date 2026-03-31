@@ -131,7 +131,7 @@ main {
 .days {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 7px 15px;
 }
 
 .day {
