@@ -45,27 +45,30 @@ animate();
       color-mix(in oklab, var(--col-min-day) calc(100% - v-bind(percent)), oklch(from var(--col-max-day) l c calc(h + 15 * v-bind(count))) calc(v-bind(percent) * 3));
 
   background: var(--col-day);
-  box-shadow: 0 5px 0 oklch(0 0 0 / 0.3), 0 0 200px oklch(from var(--col-day) l c h / calc(100% * v-bind(shadowAnim)));
+  box-shadow: 0 7px 0 oklch(0 0 0 / 0.3), 0 0 200px oklch(from var(--col-day) l c h / calc(50% * v-bind(shadowAnim)));
+  /*border: 1px solid var(--col-day);*/
+  /*border: 2px solid oklch(from var(--col-day) calc(l + .03) c h);*/
   border-radius: 20px;
   overflow: hidden;
   user-select: none;
 
-  text-shadow: oklch(from var(--col-day) .9 c h / 30%) 0 0 10px;
+  text-shadow: oklch(from var(--col-day) .9 c h / 50%) 0 0 20px;
 
-  padding: 5px 5px 5px 5px;
+  padding: 7px 7px 7px 7px;
   margin-bottom: 10px;
 
   transition: all 1s ease-in-out, background-color 200ms ease-out;
 
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 7px;
 }
 
 .tile {
   background: oklch(from var(--col-day) calc(l * .8) c h);
-  border-top: oklch(from var(--col-day) calc(l * .7) c h) solid 4px;
-  border-bottom: transparent solid 4px;
+  border-top: oklch(from var(--col-day) calc(l * .7) c h) solid 6px;
+  border-bottom: transparent solid 6px;
+
   border-radius: 15px;
   transition: all 200ms ease-out;
 }
