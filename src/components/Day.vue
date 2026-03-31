@@ -45,7 +45,7 @@ animate();
       color-mix(in oklab, var(--col-min-day) calc(100% - v-bind(percent)), oklch(from var(--col-max-day) l c calc(h + 15 * v-bind(count))) calc(v-bind(percent) * 3));
 
   background: var(--col-day);
-  box-shadow: 0 7px 0 oklch(0 0 0 / 0.3), 0 0 200px oklch(from var(--col-day) l c h / calc(50% * v-bind(shadowAnim)));
+  box-shadow: 0 7px 0 oklch(0 0 0 / 0.3), 0 0 200px oklch(from var(--col-day) l c h / calc(70% * v-bind(shadowAnim)));
   /*border: 1px solid var(--col-day);*/
   /*border: 2px solid oklch(from var(--col-day) calc(l + .03) c h);*/
   border-radius: 20px;
